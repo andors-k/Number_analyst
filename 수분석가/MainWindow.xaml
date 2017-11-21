@@ -5,8 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:수분석가"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="수 분석가 Ver 1.0" Height="350" Width="650
+        " ScrollViewer.VerticalScrollBarVisibility="Disabled" ResizeMode="NoResize">
     <Grid>
-        
+        <TextBox x:Name="tx_input" HorizontalAlignment="Left" Height="36.427" Margin="31.12,52.93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="305.796" FontSize="22" MaxLines="1" MinWidth="5" UndoLimit="13"/>
+        <Label Content="숫자를 입력하세요" HorizontalAlignment="Left" Height="35" Margin="31.12,12.93,0,0" VerticalAlignment="Top" Width="175" FontSize="20"/>
+        <Label Content="분석결과" HorizontalAlignment="Left" Height="35" Margin="358.283,12.93,0,0" VerticalAlignment="Top" Width="94.529" FontSize="20"/>
+        <TextBox x:Name="Result" HorizontalAlignment="Left" Height="200" Margin="358.283,55.84,0,0" VerticalAlignment="Top" Width="257" IsReadOnly="True" VerticalScrollBarVisibility="Auto" UndoLimit="7" HorizontalScrollBarVisibility="Auto"/>
+        <Button Content="지우기" HorizontalAlignment="Left" Margin="525.515,16.224,0,0" VerticalAlignment="Top" Width="89.768" Height="31.706" Click="Button_Click"/>
+        <StackPanel HorizontalAlignment="Left" Height="154.77" Margin="32.31,101.07,0,0" VerticalAlignment="Top" Width="138.515">
+            <Button Content="짝수분석가" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="138.515" Click="EvenButton_Click"/>
+            <Button Content="솟수분석가" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="138.515" Click="PrimeButton_Click"/>
+            <Button Content="소인수분해분석가" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="138.515" Click="FactoButton_Click"/>
+            <Button Content="2진수전문가" HorizontalAlignment="Left" VerticalAlignment="Top" Width="138.515" Height="30" Click="BinButton_Click"/>
+            <Button Content="완전수분석가" HorizontalAlignment="Left" VerticalAlignment="Top" Width="138.515" Height="30" Click="PerfectButton_Click"/>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="154.77" Margin="185,101.44,0,0" VerticalAlignment="Top" Width="138.515">
+            <Button Content="친화수분석가" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="138.515" Click="AmicableButton_Click"/>
+            <Button Content="골드바하의 추측" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="138.515" Click="Button_Click_1" />
+            <Button Content="우박수(열)" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="138.515" Click="Button_Click_2" />
+            <Button Content="-" HorizontalAlignment="Left" VerticalAlignment="Top" Width="138.515" Height="30" />
+            <Button Content="-" HorizontalAlignment="Left" VerticalAlignment="Top" Width="138.515" Height="30" />
+        </StackPanel>
+        <Label x:Name="hint" Content="" HorizontalAlignment="Left" Margin="31.12,260.84,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.25,-0.157" Width="584.163" Height="54.56"/>
     </Grid>
 </Window>

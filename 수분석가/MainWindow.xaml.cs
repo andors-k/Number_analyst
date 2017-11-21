@@ -45,7 +45,7 @@ namespace 수분석가
             p = MyMath.Primenum(num);
 
             if (p == num) Result.Text += (tx_input.Text + "은(는) 소수 입니다.\n");
-            else if(p==1)  Result.Text = (tx_input.Text + "은(는)2보다 작은 수입니다.\n");
+            else if(p==num-1)  Result.Text = (tx_input.Text + "은(는)2보다 작은 수입니다.\n");
             else Result.Text += (tx_input.Text+"은(는) " + p + "로 나누어지는 합성수 입니다.\n");
 
             Result.ScrollToEnd();

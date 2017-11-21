@@ -1,6 +1,12 @@
-﻿using System;
+﻿//   2017.11.21   1을 솟수로 판단하는 문제 수정
+//   2017.10.16   수분석가 , 수분석가(안드로이드)에 이용하기 위해 만듬  
+
+
+
+using System;
 using System.Collections.Generic;
 using System.Text;
+
 
 namespace 수분석가
 {
@@ -16,7 +22,7 @@ namespace 수분석가
             else return false;
         }
 
-        static public bool  Evennum(ulong num)
+        static public bool Evennum(ulong num)
         {
             if (num % 2 == 0) return true;
             else return false;
@@ -25,7 +31,7 @@ namespace 수분석가
         // 2.  소인수 분해 함수
         //  인수 : long ulong 형식의 수
         //  return :  "1 x 2^3 ... " 소인수분해 형태의 문자열
-        static public  string make_factorForm(long M)
+        static public string make_factorForm(long M)
         {
             long n;
             long max_n;
@@ -63,13 +69,13 @@ namespace 수분석가
         //  3. 솟수인지 판단하는 함수  
         //   리턴값 소수면 자기자신  
         //         소수가 아니면 처음발견한 인수  
-        //         2보다 작으면 1
+        //         2보다 작으면 1    -->  2보다 작으면 자기자신-1 (2017.11.21)
         static public long Primenum(long M)
         {
             long n;
             long i;
 
-            if (M < 2) return 1;
+            if (M < 2) return M - 1;
             if (M == 2) return M;   // 2는 소수
 
             n = (long)(Math.Sqrt((double)M) + 1.0);
@@ -91,7 +97,7 @@ namespace 수분석가
             ulong n;
             ulong i;
 
-            if (M < 2) return 1;
+            if (M < 2) return M - 1;
             if (M == 2) return M;   // 2는 소수
 
             n = (ulong)(Math.Sqrt((double)M) + 1.0);
@@ -113,7 +119,7 @@ namespace 수분석가
         //        완전수가 아니면 False
         // 인수 :  long M 판단이 필요한수
         //         out string str : 소인수 분해 결과를 저장하는 문자열
-        //         out long sum  : 숫자 M의 인수의 합을 저장
+        //         out long sum  : 숫자 M의 인수의 합을 저장 
         static public bool Perfectnum(long M, out string str, out long sum)
         {
             string str1 = "1";
@@ -228,13 +234,13 @@ namespace 수분석가
         //        ulong num : 분석하는 대상 수
         //        out ulong n1 : 분리된 솟수1 , num이 4보다 작으면 or 분리가 안되면  n1 = 1 
         //        out ulong n1 : 분리된 솟수2 , num이 4보다 작으면 or 분리가 안되면 n2 = 1  
-        static public bool goldbachconj(ulong num,out ulong n1 , out ulong n2)
+        static public bool goldbachconj(ulong num, out ulong n1, out ulong n2)
         {
             ulong i = 0;
             ulong j = 0;
             bool gold = false;
 
-            if( Evennum(num)==false || num <4 )
+            if (Evennum(num) == false || num < 4)
             {
                 n1 = 1; n2 = 1;
                 return false;
@@ -253,7 +259,7 @@ namespace 수분석가
                 }
             }
             n1 = i; n2 = j;
-            return gold; 
+            return gold;
         }
 
         // 8. 우박수열  (Collatz 추측)
@@ -267,7 +273,7 @@ namespace 수분석가
             long n = 0;
             str = "";
 
-            if ( num > 0)
+            if (num > 0)
             {
                 str += num.ToString();
                 do
@@ -282,16 +288,14 @@ namespace 수분석가
 
                 } while (num != 1 || n == long.MaxValue);  // 우박수는 1로 수렴해야 루프가 끝난다
             }
-            
+
             return n;
         }
 
 
         // 기초 메소드
 
-        // M 안에 n이 몇개 있는지 계산하는 함수
-        // 예 : M= 8 , n =2 이면 (8=2%3 ) 리턴은 3 
-        // 예 : M = 9 , n =2 이면 (9=3^2) 리턴은 0
+
         static private int n_be_M(long M, long n)  // n 이 인수로 몇개 존재하는지 반환 
         {
             int i = 0;
@@ -307,6 +311,6 @@ namespace 수분석가
 
         }
 
-        
+
     }
 }
